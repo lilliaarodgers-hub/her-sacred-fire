@@ -1,5 +1,16 @@
 import Link from 'next/link'
 
+const socials = [
+  { label: 'TikTok', href: 'https://www.tiktok.com/@unmaskedanduntamed' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@unmaskedanduntamed' },
+  { label: 'Substack', href: 'https://unmaskedanduntamed.substack.com' },
+  { label: 'Pinterest', href: 'https://www.pinterest.com/unmaskedanduntamed' },
+  { label: 'Lemon8', href: 'https://www.lemon8app.com/@unmaskedanduntamed' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/unmaskedanduntamed' },
+  { label: 'Patreon', href: 'https://www.patreon.com/unmaskedanduntamed' },
+  { label: 'Skool', href: 'https://www.skool.com/unmaskedanduntamed' },
+]
+
 export default function SiteFooter() {
   return (
     <footer className="bg-[var(--color-void)] border-t border-[var(--color-ember)]/20">
@@ -49,7 +60,22 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[var(--color-ember)]/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-muted)]">
+        {/* Socials */}
+        <div className="mt-12 flex flex-wrap gap-3">
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-[var(--color-ember)]/20 px-4 py-1.5 text-xs text-[var(--color-muted)] hover:border-[var(--color-ember)] hover:text-[var(--color-cream)] transition-colors"
+            >
+              {s.label}
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-8 pt-8 border-t border-[var(--color-ember)]/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-muted)]">
           <p>© {new Date().getFullYear()} Her Sacred Fire. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/legal/privacy" className="hover:text-[var(--color-cream)] transition-colors">Privacy</Link>
